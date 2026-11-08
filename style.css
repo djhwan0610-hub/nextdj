@@ -1,0 +1,208 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+:root {
+  --navy: #0b2a5b;
+  --blue: #1d4ed8;
+  --sky: #eaf2ff;
+  --line: #d7e3f8;
+  --text: #1b2433;
+  --muted: #5b6b85;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* 상단 메뉴 */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+header.site .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.brand { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
+.brand small { font-weight: 500; color: var(--muted); font-size: 0.78rem; margin-left: 6px; }
+nav.menu { display: flex; gap: 6px; flex-wrap: wrap; }
+nav.menu a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+nav.menu a:hover { background: var(--sky); text-decoration: none; }
+nav.menu a.active { background: var(--blue); color: var(--white); }
+
+/* 히어로 */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  color: var(--white);
+  padding: 72px 0 64px;
+}
+.hero h1 { margin: 0 0 6px; font-size: 2.4rem; line-height: 1.25; letter-spacing: -0.02em; }
+.hero .hanja { opacity: 0.8; font-size: 1rem; margin-bottom: 18px; }
+.hero p.lead { font-size: 1.15rem; max-width: 640px; margin: 0 0 26px; opacity: 0.95; }
+.hero.small { padding: 48px 0 40px; }
+.hero.small h1 { font-size: 1.9rem; }
+.hero.small p.lead { margin: 0; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: var(--white);
+  color: var(--navy);
+}
+.btn:hover { text-decoration: none; opacity: 0.92; }
+.btn.primary { background: var(--blue); color: var(--white); }
+.btn.ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.6); margin-left: 8px; }
+
+/* 본문 섹션 */
+section { padding: 56px 0; }
+section.alt { background: var(--sky); }
+h2 { margin: 0 0 8px; font-size: 1.6rem; color: var(--navy); letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 0 0 28px; }
+
+.grid { display: grid; gap: 16px; }
+.grid.four { grid-template-columns: repeat(4, 1fr); }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+}
+.card h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--navy); }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.card .tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--sky);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+/* 조직 구성 */
+.org { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.org .node {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+}
+.org .node.top { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.org .row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.org .arrow { color: var(--blue); font-size: 1.2rem; line-height: 1; }
+
+/* 게시판(목록) */
+table.board { width: 100%; border-collapse: collapse; background: var(--white); border-top: 2px solid var(--navy); }
+table.board th, table.board td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+table.board th { background: var(--sky); color: var(--navy); font-size: 0.9rem; }
+table.board td.date { color: var(--muted); white-space: nowrap; width: 120px; }
+table.board td.cat { width: 90px; font-weight: 700; color: var(--blue); white-space: nowrap; }
+
+/* 단계 */
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+ol.steps li {
+  counter-increment: s;
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px 16px 62px;
+}
+ol.steps li::before {
+  content: counter(s);
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+ol.steps li strong { color: var(--navy); }
+
+/* 영상 / SNS */
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--navy);
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  text-align: center;
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.sns a.card { display: block; color: inherit; }
+.sns a.card:hover { text-decoration: none; border-color: var(--blue); }
+.sns .name { font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+
+.note {
+  background: #fff8e6;
+  border: 1px solid #f3dfa5;
+  color: #6b5311;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  margin-top: 18px;
+}
+
+footer.site { background: var(--navy); color: #cdd9f1; padding: 36px 0; font-size: 0.9rem; }
+footer.site strong { color: var(--white); }
+footer.site a { color: #cdd9f1; }
+
+@media (max-width: 820px) {
+  .grid.four, .grid.three { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 1.9rem; }
+}
+@media (max-width: 560px) {
+  .grid.four, .grid.three, .grid.two { grid-template-columns: 1fr; }
+  .hero { padding: 52px 0 44px; }
+  .btn.ghost { margin-left: 0; margin-top: 8px; }
+  table.board td.date { width: 90px; font-size: 0.85rem; }
+  table.board td.cat { width: 60px; }
+}
